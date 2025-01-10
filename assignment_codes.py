@@ -1,0 +1,11 @@
+import cv2
+image = cv2.imread("assignment-001-given.jpg")
+background_label = image.copy()
+cv2.rectangle(background_label, (800,80), (1260, 190), (0,0,0), -1)
+blended_image = cv2.addWeighted(background_label, 0.5, image, 0.5, 0)
+cv2.rectangle(blended_image, (260, 190), (995, 925), (0, 255, 0), 5)
+cv2.putText(blended_image, 'RAH972U', (820,170), cv2.FONT_HERSHEY_SIMPLEX, 3, (0, 255, 0), 7)
+cv2.imshow("Assignment_image", blended_image)
+cv2.waitKey(0)
+cv2.imwrite("assignment_result.jpg", blended_image)
+cv2.destroyAllWindows()
